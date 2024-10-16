@@ -1,5 +1,6 @@
 import React from 'react'
 import Countdown from 'react-countdown';
+import CardFlashSale from './CardFlashSale';
 
 function FlashSale() {
 
@@ -7,17 +8,19 @@ function FlashSale() {
 
     const renderer = ({ hours, minutes, seconds }) => {
         return (
-            <div className="flex items-center gap-4 wrapper pt-[100px]">
-                <h3 className="text-[32px] text-white font-semibold overflow-hidden">FLASH SALE</h3>
-                <div className="flex gap-2">
-                    <div className="bg-red-600 text-white p-2 rounded-md text-2xl font-bold w-12 flex justify-center shadow-md">
-                        {String(hours).padStart(2, '0')}
-                    </div>
-                    <div className="bg-red-600 text-white p-2 rounded-md text-2xl font-bold w-12 flex justify-center shadow-md">
-                        {String(minutes).padStart(2, '0')}
-                    </div>
-                    <div className="bg-red-600 text-white p-2 rounded-md text-2xl font-bold w-12 flex justify-center shadow-md">
-                        {String(seconds).padStart(2, '0')}
+            <div className="flex flex-col gap-4">
+                <div className='flex items-center gap-5'>
+                    <h3 className="text-[32px] text-white font-semibold">FLASH SALE</h3>
+                    <div className="flex gap-2">
+                        <div className="bg-red-600 text-white rounded-md text-lg font-bold w-10 flex justify-center shadow-md overflow-hidden">
+                            {String(hours).padStart(2, '0')}
+                        </div>
+                        <div className="bg-red-600 text-white rounded-md text-lg font-bold w-10 flex justify-center shadow-md overflow-hidden">
+                            {String(minutes).padStart(2, '0')}
+                        </div>
+                        <div className="bg-red-600 text-white rounded-md text-lg font-bold w-10 flex justify-center shadow-md overflow-hidden">
+                            {String(seconds).padStart(2, '0')}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -25,10 +28,18 @@ function FlashSale() {
     };
 
     return (
-        <Countdown
-            date={endDate}
-            renderer={renderer}
-        />
+        <section className='wrapper py-[100px]'>
+            <Countdown
+                date={endDate}
+                renderer={renderer}
+            />
+            <p className="font-normal text-sm text-[#EAEAEA]">Segera dapatkan penawaran terbatas dari kami, jangan sampai ketinggalan!</p>
+            <div className='grid grid-cols-4 gap-3 pt-10'>
+                {Array(8).fill().map((_, i) => (
+                    <CardFlashSale />
+                ))}
+            </div>
+        </section>
     );
 }
 

@@ -11,10 +11,10 @@ function HeroSection() {
                 backgroundImage: `url(${bgHeroSection.src})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                height: "100vh",
+                height: "100%",
                 paddingTop: "80px",
-                position: "relative",
             }}
+            className="overflow-hidden"
         >
             <CarouselBanner />
             <div className="wrapper pt-6">
@@ -22,15 +22,16 @@ function HeroSection() {
                 <p className="font-normal text-sm text-[#EAEAEA]">Segera dapatkan skin startlight Melissa “Nightwalker” dengan topup murah hanya di VocaGame.</p>
             </div>
             <FlashSale />
-            {/* <div className="relative">
-                <Image
-                    src={graphic}
-                    alt="graphic"
-                    width={200}
-                    height={200}
-                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
-                />
-            </div> */}
+            <div className="relative">
+                <div className="absolute">
+                    <img
+                        src={graphic}
+                        alt="graphic"
+                        width={200}
+                        height={200}
+                    />
+                </div>
+            </div>
         </section>
     );
 }
