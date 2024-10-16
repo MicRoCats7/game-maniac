@@ -1,6 +1,5 @@
 import bgHeroSection from "@/public/assets/bg-heroSection.jpeg";
 import CarouselBanner from "./CarouselBanner";
-import graphic from "@/public/assets/graphic.png";
 import Image from "next/image";
 import FlashSale from "./FlashSale";
 
@@ -12,26 +11,15 @@ function HeroSection() {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: "100%",
-                paddingTop: "80px",
             }}
-            className="overflow-hidden"
+            className="overflow-hidden md:pt-20 pt-10"
         >
             <CarouselBanner />
-            <div className="wrapper pt-6">
-                <h1 className="font-semibold text-[32px] text-[#F9F9F9]">Starlight November 2023: Melissa “Nightwalker”</h1>
-                <p className="font-normal text-sm text-[#EAEAEA]">Segera dapatkan skin startlight Melissa “Nightwalker” dengan topup murah hanya di VocaGame.</p>
+            <div className="md:wrapper md:px-[120px] wrapper-mobile pt-6">
+                <h1 className="font-semibold md:text-[32px] text-sm text-[#F9F9F9] md:py-3 py-0 overflow-hidden">Starlight November 2023: Melissa “Nightwalker”</h1>
+                <p className="font-normal md:text-sm text-[10px] md:text-[#EAEAEA] text-[#C9C9C9]">Segera dapatkan skin startlight Melissa “Nightwalker” dengan topup murah hanya di VocaGame.</p>
             </div>
             <FlashSale />
-            <div className="relative">
-                <div className="absolute">
-                    <img
-                        src={graphic}
-                        alt="graphic"
-                        width={200}
-                        height={200}
-                    />
-                </div>
-            </div>
         </section>
     );
 }

@@ -6,16 +6,12 @@ import banner3 from "@/public/assets/banner-3.webp";
 import banner4 from "@/public/assets/banner-4.webp";
 
 function CarouselBanner() {
-    const onChange = (currentSlide) => {
-        console.log(currentSlide);
-    };
 
     const banners = [banner1, banner2, banner3, banner4];
 
     return (
         <div>
             <Carousel
-                afterChange={onChange}
                 slidesToShow={1}
                 slidesToScroll={1}
                 infinite
@@ -23,26 +19,29 @@ function CarouselBanner() {
                 autoplay
                 draggable
                 centerMode={true}
+                responsive={[
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                            centerMode: false,
+                        },
+                    },
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 1,
+                        },
+                    },
+                ]}
             >
                 {banners.map((banner, index) => (
                     <div key={index}>
-                        <div style={{
-                            width: "100%",
-                            height: "400px",
-                            borderRadius: "20px",
-                            overflow: "hidden",
-                            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.2)",
-                            padding: "0 16px"
-                        }}>
+                        <div className="w-full h-[200px] md:h-[400px] rounded-[20px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.2)] px-4">
                             <img
                                 src={banner.src}
                                 alt={`banner-${index}`}
-                                style={{
-                                    width: "100%",
-                                    height: "100%",
-                                    objectFit: "cover",
-                                    borderRadius: "20px"
-                                }}
+                                className="w-full h-full object-cover rounded-[20px]"
                             />
                         </div>
                     </div>

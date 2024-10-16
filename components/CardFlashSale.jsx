@@ -19,15 +19,15 @@ function CardFlashSale() {
                     className='rounded-md'
                 />
                 <div className='flex flex-col'>
-                    <span className='text-sm text-white font-semibold'>200 Diamonds</span>
-                    <span className='text-xs font-normal text-[#A1A1A1]'>Mobile Legends Bang Bang</span>
+                    <span className='text-sm text-white font-semibold font-manrope'>200 Diamonds</span>
+                    <span className='text-xs font-normal text-[#A1A1A1] font-manrope'>Mobile Legends Bang Bang</span>
                 </div>
             </div>
             <div className='p-3 flex items-center justify-between'>
-                <button className='text-white text-[10px] bg-[#C72323] border-none rounded-full px-3 py-1'>
+                <button className='font-manrope text-white text-[10px] bg-[#C72323] border-none rounded-full px-3 py-1'>
                     Promo
                 </button>
-                <span className='text-white text-[10px]'>-15,0%</span>
+                <span className='font-manrope text-white text-[10px]'>-15,0%</span>
             </div>
         </div>
     )
