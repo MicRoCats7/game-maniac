@@ -40,12 +40,12 @@ function GameFavorit() {
                         {isLoading && Array(5).fill().map((_, index) => (
                             <SkeletonCard key={index} />
                         ))}
-                        {error && <p className='text-red-500'>{error}</p>}
 
                         {!isLoading && !error && filteredGames.map((game) => (
                             <CardGame key={game.id} game={game} />
                         ))}
                     </div>
+                    {error && <p className='text-red-500'>{error}</p>}
                 </div>
             </div>
         </section>

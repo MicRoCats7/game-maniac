@@ -1,8 +1,7 @@
-import React from 'react'
-import profileMl from '@/public/assets/logo-ml.png'
-import Image from 'next/image'
+import React from 'react';
+import Image from 'next/image';
 
-function CardFlashSale() {
+function CardFlashSale({ item, game }) {
     return (
         <div className='bg-[#1A1A1A] p-0 rounded-lg'>
             <div
@@ -12,25 +11,27 @@ function CardFlashSale() {
                 }}
             >
                 <Image
-                    src={profileMl}
-                    alt="profile-ml"
+                    src={item.iconUrl}
+                    alt={item.name}
                     width={48}
                     height={48}
                     className='rounded-md'
                 />
                 <div className='flex flex-col'>
-                    <span className='text-sm text-white font-semibold font-manrope'>200 Diamonds</span>
-                    <span className='text-xs font-normal text-[#A1A1A1] font-manrope'>Mobile Legends Bang Bang</span>
+                    <span className='text-sm text-white font-semibold font-manrope'>{item.name}</span>
+                    <span className='text-xs font-normal text-[#A1A1A1] font-manrope'>{game.name}</span>
                 </div>
             </div>
             <div className='p-3 flex items-center justify-between'>
                 <button className='font-manrope text-white text-[10px] bg-[#C72323] border-none rounded-full px-3 py-1'>
                     Promo
                 </button>
-                <span className='font-manrope text-white text-[10px]'>-15,0%</span>
+                <span className='font-manrope text-white text-[10px]'>
+                    {item.priceDiscount > 0 ? `-${((item.priceDiscount / item.price) * 100).toFixed(1)}%` : 'No Discount'}
+                </span>
             </div>
         </div>
-    )
+    );
 }
 
-export default CardFlashSale
+export default CardFlashSale;
