@@ -25,18 +25,18 @@ To get a copy of this project up and running on your local machine, follow these
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/MicRoCats7/game-maniac.git
-   cd payment-application
+```bash
+git clone https://github.com/MicRoCats7/game-maniac.git
+cd payment-application
 
 2. Install the dependencies:
-  ```bash
-  npm install
+```bash
+npm install
 ```
 
-   or if you prefer Yarn:
-  ```bash
-  yarn install
+or if you prefer Yarn:
+```bash
+yarn install
 ```
 
 ### Running the Project
@@ -55,3 +55,5 @@ Features
 Display payment details and payment success
 Validates user input and displays error messages if necessary
 Responsive design for better user experience on different devices
+
+THANK YOU
