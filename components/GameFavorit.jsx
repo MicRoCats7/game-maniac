@@ -1,10 +1,21 @@
 import React, { useEffect } from 'react';
 import CardGame from './CardGame';
-import useGameStore from '@/store/useGameStore';
+import useGameStore from '@/zustand/useGameStore';
 import SkeletonCard from './SkeletonCard';
+import { useRouter } from 'next/navigation';
+import Loading from './Loading';
 
 function GameFavorit() {
-    const { games, fetchGames, isLoading, error, activeCategory, setActiveCategory } = useGameStore();
+    const router = useRouter();
+    const {
+        games,
+        fetchGames,
+        isLoading,
+        error,
+        activeCategory,
+        fetchGamesById,
+        loadingGameId,
+    } = useGameStore();
 
     const tabCategories = ['Rekomendasi', 'Mobile Game', 'PC Game'];
 
@@ -17,6 +28,11 @@ function GameFavorit() {
         return game.category === (activeCategory === 'Mobile Game' ? 'MOBILE' : 'PC');
     });
 
+    const handleCardClick = async (gameId) => {
+        await fetchGamesById(gameId);
+        router.push(`/detail/${gameId}`);
+    };
+
     return (
         <section className='bg-[#1A1A1A]'>
             <div className='md:wrapper md:px-[120px] wrapper-mobile md:pt-20 pt-6 pb-[53px]'>
@@ -26,7 +42,7 @@ function GameFavorit() {
                         {tabCategories.map((category) => (
                             <li
                                 key={category}
-                                onClick={() => setActiveCategory(category)}
+                                onClick={() => useGameStore.getState().setActiveCategory(category)}
                                 className={`md:w-auto text-center w-full md:py-3 py-4 md:px-5 px-3 rounded-lg md:text-sm text-xs cursor-pointer font-manrope font-bold ${activeCategory === category
                                     ? 'bg-white text-[#282828]'
                                     : 'bg-transparent hover:bg-white hover:text-[#282828] hover:font-bold font-normal text-[#949494]'
@@ -42,12 +58,18 @@ function GameFavorit() {
                         ))}
 
                         {!isLoading && !error && filteredGames.map((game) => (
-                            <CardGame key={game.id} game={game} />
+                            <CardGame
+                                key={game.id}
+                                game={game}
+                                onClick={() => handleCardClick(game.id)}
+                                isLoading={loadingGameId === game.id}
+                            />
                         ))}
                     </div>
                     {error && <p className='text-red-500'>{error}</p>}
                 </div>
             </div>
+            {isLoading && <Loading />}
         </section>
     );
 }

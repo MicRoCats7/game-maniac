@@ -10,7 +10,7 @@ import { Divider } from 'antd';
 import { AiOutlineHome } from "react-icons/ai";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import Link from 'next/link';
-import useSidebarStore from '@/store/useSidebarStore';
+import useSidebarStore from '@/zustand/useSidebarStore';
 
 function Navbar() {
     const { isSidebarOpen, openSidebar, closeSidebar } = useSidebarStore();
@@ -20,20 +20,24 @@ function Navbar() {
             <div className='md:wrapper md:px-[120px] wrapper-mobile'>
                 <div className='flex items-center justify-between'>
                     <div className='md:block hidden'>
-                        <Image
-                            src={logo}
-                            alt='logo'
-                            width={200}
-                            height={50}
-                        />
+                        <Link href='/'>
+                            <Image
+                                src={logo}
+                                alt='logo'
+                                width={200}
+                                height={50}
+                            />
+                        </Link>
                     </div>
                     <div className='md:hidden block'>
-                        <Image
-                            src={logoMobile}
-                            alt='logo'
-                            width={140}
-                            height={50}
-                        />
+                        <Link href='/'>
+                            <Image
+                                src={logoMobile}
+                                alt='logo'
+                                width={140}
+                                height={50}
+                            />
+                        </Link>
                     </div>
                     <div className='flex items-center'>
                         <IoIosSearch color='fff' size={24} />
@@ -71,7 +75,7 @@ function Navbar() {
                             Beranda
                         </Link>
                         <Link
-                            href='/lacak-pesanan'
+                            href='/order-tracker'
                             className='text-white flex items-center gap-2 text-sm font-normal'>
                             <IoIosSearch size={16} color='white' />
                             Lacak Pesanan
@@ -97,7 +101,7 @@ function Navbar() {
                         Beranda
                     </Link>
                     <Link
-                        href='/lacak-pesanan'
+                        href='/order-tracker'
                         className='text-white flex items-center gap-2 text-sm font-normal'>
                         <IoIosSearch size={16} color='white' />
                         Lacak Pesanan

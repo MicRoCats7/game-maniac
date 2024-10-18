@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Countdown from 'react-countdown';
 import CardFlashSale from './CardFlashSale';
 import { Carousel } from 'antd';
-import useGameStore from '@/store/useGameStore';
+import useGameStore from '@/zustand/useGameStore';
 import SkeletonFlashSale from './SkeletonFlashSale';
 
 function FlashSale() {
