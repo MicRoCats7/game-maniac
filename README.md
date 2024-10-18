@@ -32,21 +32,23 @@ To get a copy of this project up and running on your local machine, follow these
 2. Install the dependencies:
   ```bash
   npm install
+```
 
-or if you prefer Yarn:
+   or if you prefer Yarn:
   ```bash
   yarn install
+```
 
 ### Running the Project
 To start the development server, run:
 ```bash
 npm run dev
-
+```
 or
 
 ```bash
 yarn dev
-
+```
 Open your browser and navigate to http://localhost:3000 to view the application.
 
 Features
